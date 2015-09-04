@@ -1,0 +1,9 @@
+WITH cteEmployeeOrderedByMyRowNumber AS
+(SELECT ROW_NUMBER() OVER (ORDER BY EMPID ASC, REFDATE ASC) AS MyRowNumber
+, Row_NUMBER() Over (Partition By EMPID,FNAME,LNAME Order By REFDATE ASC) as PartitionRank
+, * 
+FROM EMPLOYEE 
+-- WHERE 1 = 1
+)
+DELETE FROM cteEmployeeOrderedByMyRowNumber 
+where PartitionRank > 1 ;

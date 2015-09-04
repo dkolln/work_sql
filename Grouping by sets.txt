@@ -1,0 +1,17 @@
+select
+p.org_name [Parent Group],
+o.org_name,
+o.org_nk,
+mda.sale_type,
+count(1) [# of Deals]
+from subscriber.organization o with (NOLOCK)
+inner join dbo.master_deal_authenticom mda with (NOLOCK)
+on o.org_nk = mda.org_nk
+left join subscriber.organization p with (NOLOCK)
+on o.parent_org_wk = p.org_wk
+where mda.org_nk IN ('10016045','10016046','10016098','10016099','10016100',
+'10016101','10016164','10016165','10016165A','10016166',
+'10016167','10016167A','10016689','10016689A')
+and partner_nk = 'dp'
+group by grouping sets((p.org_name,o.org_name, o.org_nk, mda.sale_type),
+(p.org_name,o.org_name, o.org_nk))

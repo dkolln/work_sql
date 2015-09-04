@@ -1,0 +1,5 @@
+use rrs_autodw
+
+select top 1000 * from di_customer 
+where dnc_ivr_effective_date is null 
+OPTION (FAST 10)

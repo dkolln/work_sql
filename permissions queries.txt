@@ -1,0 +1,28 @@
+Use [RRS_ERMDW]
+Go
+
+
+Grant References On survey.vw_metric_questions To [developers_Role]
+Go
+
+Grant Select On survey.vw_metric_questions To [developers_Role]
+Go
+
+Grant View Definition On survey.vw_metric_questions To [developers_Role]
+Go
+
+Go
+
+
+Grant References On etl.uspETL_CallInteraction_SurveyMetricUpdate To [developers_Role]
+Go
+
+Grant View Definition On etl.uspETL_CallInteraction_SurveyMetricUpdate To [developers_Role]
+Go
+
+Grant Execute On etl.uspETL_CallInteraction_SurveyMetricUpdate To [developers_Role]
+Go
+
+Go
+
+Go
